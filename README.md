@@ -29,3 +29,17 @@ Mention {
 }
 */
 ```
+
+## Example
+```js
+// reply with '👀' when someone mentions the bot
+
+client.on('message', message => {
+    if (mention(message.content, message.guild)) {
+        var member = mention(message.content, message.guild).member;
+        
+        if (member && member.user.id === client.user.id) message.channel.send(':eyes:')
+            .catch(err => console.error(err));
+    }
+});
+```
