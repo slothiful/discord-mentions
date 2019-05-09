@@ -44,7 +44,7 @@ client.on('message', message => {
             console.log('I was mentioned.');
             message.channel.send(':eyes:')
                 .catch(err => console.error(err));
-            }
+        }
     }
 });
 ```
