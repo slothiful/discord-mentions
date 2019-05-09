@@ -38,7 +38,9 @@ client.on('message', message => {
     var mention = getMention(message.content, message.guild);
     
     if (mention) {
-        if (mention.member && mention.member.user.id === client.user.id) message.channel.send(':eyes:')
+        var member = mention.member;
+        
+        if (member && member.user.id === client.user.id) message.channel.send(':eyes:')
             .catch(err => console.error(err));
     }
 });
