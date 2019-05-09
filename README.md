@@ -40,8 +40,11 @@ client.on('message', message => {
     if (mention) {
         var member = mention.member;
         
-        if (member && member.user.id === client.user.id) message.channel.send(':eyes:')
-            .catch(err => console.error(err));
+        if (member && member.user.id === client.user.id) {
+            console.log('I was mentioned.');
+            message.channel.send(':eyes:')
+                .catch(err => console.error(err));
+            }
     }
 });
 ```
