@@ -17,9 +17,9 @@ Easily get a member, role, or channel from a Discord mention using [Discord.js](
 If a valid mention is provided, the response will be a Mention object with a `member`, `role`, or `channel` property. Otherwise, it will return `undefined`.
 
 ```js
-const mention = require('d.js-mentions');
+const getMention = require('d.js-mentions');
 
-var member = mention('<@189855563893571595>', someGuild).member;
+var member = getMention('<@189855563893571595>', someGuild).member;
 
 /*
 Mention {
@@ -35,10 +35,10 @@ Mention {
 // reply with '👀' when someone mentions the bot
 
 client.on('message', message => {
-    if (mention(message.content, message.guild)) {
-        var member = mention(message.content, message.guild).member;
-        
-        if (member && member.user.id === client.user.id) message.channel.send(':eyes:')
+    var mention = getMention(message.content, message.guild);
+    
+    if (mention) {
+        if (mention.member && mention.member.user.id === client.user.id) message.channel.send(':eyes:')
             .catch(err => console.error(err));
     }
 });
