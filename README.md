@@ -17,9 +17,9 @@ Easily extract a member, role, or channel from a Discord mention using [Discord.
 ```js
 const getMention = require('d.js-mentions');
 
-var mention = getMention('not a mention'); // undefined
+var mention = getMention('not a mention');                          // undefined
 var member = getMention('<@189855563893571595>', someGuild).member; // GuildMember
-var id = getMention('<@189855563893571595>').member; // '189855563893571595'
+var id = getMention('<@189855563893571595>').member;                // '189855563893571595'
 ```
 * If a valid mention and guild are provided, the response will be an object with a `member`, `role`, or `channel` property as the mentioned object.
 * If the string provided is *not* a mention, `undefined` will be returned.
