@@ -7,8 +7,8 @@ const Discord = require('discord.js');
  * Extract the related object out of a Discord mention.
  * @param {string} string The (assumed) mention.
  * @param {Discord.Guild} [guild] If the string is from a message, the guild it was sent in. *If omitted, the returned object's property will be an ID.*
- * @see https://github.com/slothiful/d.js-mentions#usage
  * @returns {Object|undefined} An object with a `member`, `role`, or `channel` property corresponding with the mention, or `undefined` if the provided string is not a mention.
+ * @see https://github.com/slothiful/d.js-mentions#usage
  */
 function getMention(string, guild = null) {
   // checking provided arguments and throwing necessary errors
