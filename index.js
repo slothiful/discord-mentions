@@ -1,33 +1,32 @@
 'use strict';
 
+// requiring Discord.js
 const Discord = require('discord.js');
 
-class Mention {
-  constructor(member = undefined, role = undefined, channel = undefined) {
-    if (member) this.member = member;
-    if (role) this.role = role;
-    if (channel) this.channel = channel;
-  }
-}
-
-module.exports = 
 /**
- * Returns a Mention object with a `member` (`GuildMember`), `role` (`Role`), or `channel` (`GuildChannel`) property corresponding with the given mention, or `undefined` if the given string is *not* a mention.
- * @param {string} string 
- * @param {Discord.Guild} guild 
+ * Extract the related object out of a Discord mention.
+ * @param {string} string The (assumed) mention.
+ * @param {Discord.Guild} [guild] If the string is from a message, the guild it was sent in. *If omitted, the returned object's property will be an ID.*
+ * @see https://github.com/slothiful/d.js-mentions#usage
+ * @returns {Object|undefined} An object with a `member`, `role`, or `channel` property corresponding with the mention, or `undefined` if the provided string is not a mention.
  */
-
-function(string, guild) {
+function getMention(string, guild = null) {
+  // checking provided arguments and throwing necessary errors
   if (typeof string !== 'string') throw new TypeError('Invalid string provided.');
-  if (!(guild instanceof Discord.Guild)) throw new TypeError('Invalid guild provided.');
+  if (guild && !(guild instanceof Discord.Guild)) throw new TypeError('Invalid guild provided.');
 
+  // using a Regular Expression to test the mention and extract the ID
   const match = string.match(/^<(@!?|@&|#)(\d{18})>$/);
 
   if (match) {
     const id = match[2];
 
-    if (string.match(/^<@!?(\d{18})>$/)) return new Mention(guild.member(id));
-    else if (string.match(/^<@&(\d{18})>$/)) return new Mention(undefined, guild.roles.get(id));
-    else if (string.match(/^<#(\d{18})>$/)) return new Mention(undefined, undefined, guild.channels.get(id));
-  } else return undefined;
-};
+    // returning objects
+    if (string.match(/^<@!?(\d{18})>$/)) return { member: guild ? guild.member(id) : id };
+    if (string.match(/^<@&(\d{18})>$/)) return { role: guild ? guild.roles.get(id) : id };
+    if (string.match(/^<#(\d{18})>$/)) return { channel: guild ? guild.channels.get(id) : id };
+  } else return; // returning undefined if the provided string was not a mention
+}
+
+// exporting the function
+module.exports = getMention;
