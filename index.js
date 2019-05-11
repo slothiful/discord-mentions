@@ -10,10 +10,10 @@ const Discord = require('discord.js');
   * @returns {Object|undefined} An object with a `member`, `role`, or `channel` property corresponding with the mention, or `undefined` if the provided string is not a mention.
   * @see https://github.com/slothiful/d.js-mentions#usage
   */
-function getMention(string, guild = null) {
+function getMention(string, guild = undefined) {
   // checking provided arguments and throwing necessary errors
   if (typeof string !== 'string') throw new TypeError('Invalid string provided.');
-  if (guild && !(guild instanceof Discord.Guild)) throw new TypeError('Invalid guild provided.');
+  if (typeof guild !== 'undefined' && !(guild instanceof Discord.Guild)) throw new TypeError('Invalid guild provided.');
 
   // using a Regular Expression to test the mention and extract the ID
   const match = string.match(/^<(@!?|@&|#)(\d{18})>$/);
