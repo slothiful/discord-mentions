@@ -2,11 +2,9 @@
     <a href="https://github.com/slothiful/discord-mentions"><img width="250" height="62.5" src="https://github.com/slothiful/discord-mentions/blob/master/logo.png?raw=true"></a>
 </p>
 <p align="center">
-    <a href="https://github.com/slothiful/discord-mentions">
-        <img src="https://img.shields.io/npm/v/discord-mentions.svg">
-        <img src="https://img.shields.io/bundlephobia/min/discord-mentions.svg">
-        <img src="https://img.shields.io/github/issues/slothiful/discord-mentions.svg">
-    </a>
+    <a href="https://github.com/slothiful/discord-mentions"><img src="https://img.shields.io/npm/v/discord-mentions.svg"></a>
+    <a href="https://bundlephobia.com/result?p=discord-mentions@2.0.1"><img src="https://img.shields.io/bundlephobia/min/discord-mentions.svg"></a>
+    <a href = "https://github.com/slothiful/discord-mentions/issues"><img src="https://img.shields.io/github/issues/slothiful/discord-mentions.svg"></a>
 </p>
 
 ## About
