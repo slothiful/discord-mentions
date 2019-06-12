@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/slothiful/d.js-mentions"><img width="250" height="62.5" src="https://github.com/slothiful/d.js-mentions/blob/master/logo.png?raw=true"></a>
+    <a href="https://github.com/slothiful/discord-mentions"><img width="250" height="62.5" src="https://github.com/slothiful/discord-mentions/blob/master/logo.png?raw=true"></a>
 </p>
 <p align="center">
     <a href="https://github.com/slothiful/discord-mentions">
