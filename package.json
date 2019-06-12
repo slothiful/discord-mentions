@@ -1,9 +1,9 @@
 {
-  "name": "d.js-mentions",
-  "version": "2.1.1",
+  "name": "discord-mentions",
+  "version": "2.0.0",
   "description": "Easily extract a member, role, or channel from a Discord mention.",
   "main": "index.js",
-  "repository": "slothiful/d.js-mentions",
+  "repository": "slothiful/discord-mentions",
   "keywords": [
     "discord",
     "discord.js",
@@ -13,6 +13,6 @@
   "author": "slothiful <itsslothiful@gmail.com>",
   "license": "UNLICENSED",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.5.1"
   }
 }
