@@ -6,7 +6,7 @@ const Discord = require('discord.js');
   * @param {string} string The (assumed) mention.
   * @param {Discord.Guild} [guild] If the string is from a message, the guild it was sent in. *If omitted, the returned object's property will be an ID.*
   * @returns {Object|null} An object with a `member`, `role`, or `channel` property corresponding with the mention, or `null` if the provided string is not a mention.
-  * @see https://github.com/slothiful/d.js-mentions#usage
+  * @see https://github.com/slothiful/discord-mentions#usage
   */
 function getMention(string, guild = undefined) {
   // Throwing any necessary errors.
@@ -14,7 +14,7 @@ function getMention(string, guild = undefined) {
   if (typeof guild !== 'undefined' && !(guild instanceof Discord.Guild)) throw new TypeError('Invalid guild provided.');
 
   // Using a Regular Expression to test the mention and extract the parts.
-  const match = string.match(/^<(@!?|@&|#)(\d{18})>$/);
+  const match = string.match(/^<(@!?|@&|#)([0-9]+)>$/);
 
   if (match) {
     const prefix = match[1];
