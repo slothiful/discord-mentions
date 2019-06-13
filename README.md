@@ -3,7 +3,7 @@
 </p>
 <p align="center">
     <a href="https://www.npmjs.com/package/discord-mentions"><img src="https://img.shields.io/npm/v/discord-mentions.svg"></a>
-    <a href="https://bundlephobia.com/result?p=discord-mentions@3.0.0"><img src="https://img.shields.io/bundlephobia/min/discord-mentions.svg"></a>
+    <a href="https://bundlephobia.com/result?p=discord-mentions@3.0.1"><img src="https://img.shields.io/bundlephobia/min/discord-mentions.svg"></a>
     <a href = "https://github.com/slothiful/discord-mentions/issues"><img src="https://img.shields.io/github/issues/slothiful/discord-mentions.svg"></a>
 </p>
 
