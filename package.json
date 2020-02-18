@@ -1,6 +1,6 @@
 {
   "name": "discord-mentions",
-  "version": "3.0.1",
+  "version": "3.2.0",
   "description": "Easily extract a member, role, or channel from a Discord mention.",
   "main": "index.js",
   "repository": "slothiful/discord-mentions",
