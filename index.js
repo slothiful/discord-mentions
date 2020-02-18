@@ -21,9 +21,9 @@ function getMention(string, guild = undefined) {
     const id = match[2];
 
     // Returning objects with corresponding properties.
-    if (prefix.match(/^@!?$/)) return { member: guild ? guild.member(id) : id };
-    if (prefix === '@&') return { role: guild ? guild.roles.get(id) : id };
-    if (prefix === '#') return { channel: guild ? guild.channels.get(id) : id };
+    if (prefix.match(/^@!?$/)) return { member: guild ? guild.member(id) || id : id };
+    if (prefix === '@&') return { role: guild ? guild.roles.get(id) || id : id };
+    if (prefix === '#') return { channel: guild ? guild.channels.get(id) || id : id };
   } else return null; // Returning null if the provided string was not a mention.
 }
 
