@@ -33,7 +33,7 @@ Returns...
 * **...when a valid mention is provided, but the guild parameter is omitted:**  
     an object with a `member`, `role`, or `channel` property as the ID inside the mention.
     
-* **...when an invalid mention and valid guild are provided:**
+* **...when an invalid mention and valid guild are provided:**  
     an object with a `member`, `role`, or `channel` property as as the ID inside the mention.
     
 * **...when an invalid mention is provided, but the guild parameter is omitted:**  
