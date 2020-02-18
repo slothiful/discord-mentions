@@ -3,7 +3,7 @@
 </p>
 <p align="center">
     <a href="https://www.npmjs.com/package/discord-mentions"><img src="https://img.shields.io/npm/v/discord-mentions.svg"></a>
-    <a href="https://bundlephobia.com/result?p=discord-mentions@3.0.1"><img src="https://img.shields.io/bundlephobia/min/discord-mentions.svg"></a>
+    <a href="https://bundlephobia.com/result?p=discord-mentions@3.2.0"><img src="https://img.shields.io/bundlephobia/min/discord-mentions.svg"></a>
     <a href = "https://github.com/slothiful/discord-mentions/issues"><img src="https://img.shields.io/github/issues/slothiful/discord-mentions.svg"></a>
 </p>
 
@@ -14,11 +14,14 @@ Easily extract a member, role, or channel from a Discord mention using [Discord.
 ```js
 const getMention = require('discord-mentions');
 
-var member = getMention('<@189855563893571595>', someGuild).member;
+var member = getMention('<@!189855563893571595>', someGuild).member;
 // Expected: GuildMember
 
-var id = getMention('<@!189855563893571595>').member;
-// Expected: '189855563893571595'
+var role = getMention('<@&12345689012345678>', someGuild).role;
+// Expected: '12345689012345678' (ID doesn't refer to a valid role)
+
+var id = getMention('<#632684617312370698>').channel;
+// Expected: '632684617312370698'
 
 var mention = getMention('not a mention');
 // Expected: null
@@ -26,11 +29,14 @@ var mention = getMention('not a mention');
 Returns...
 * **...when a valid mention and guild are provided:**  
     an object with a `member`, `role`, or `channel` property as the mentioned GuildMember/Role/GuildChannel.
-  
+    
 * **...when a valid mention is provided, but the guild parameter is omitted:**  
     an object with a `member`, `role`, or `channel` property as the ID inside the mention.
-  
-* **...when an invalid mention is provided:**  
+    
+* **...when an invalid mention and valid guild are provided:**
+    an object with a `member`, `role`, or `channel` property as as the ID inside the mention.
+    
+* **...when an invalid mention is provided, but the guild parameter is omitted:**  
     `null`
 
 ## Example
@@ -60,7 +66,7 @@ client.on('message', message => {
       
       // Making sure the mention is a member.
       const recipient = mention.member;
-      if (!recipient) return await message.channel.send(':x: That\'s a mention, but not a member!');
+      if (!recipient || typeof recipient === 'string') return await message.channel.send(':x: That\'s a mention, but not a member!');
       
       await message.channel.send(`${message.author} hugs ${recipient}!`);
     } catch(err) {
